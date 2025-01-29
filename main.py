@@ -1,4 +1,5 @@
 import subprocess
+import random
 from random import sample
 
 from slack_bolt import App
@@ -66,6 +67,7 @@ def react_to_frog_messages(event, client: WebClient):
 
 @app.event("app_mention")
 def respond_to_mention(event, say):
+    print(f"Received app_mention event: {event}")
     ribbit_count = random.randint(1, 10)
     ribbits = " ".join(["ribbit"] * ribbit_count)
     say(f"{ribbits}! 🐸")
