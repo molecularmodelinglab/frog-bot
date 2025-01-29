@@ -1,0 +1,4 @@
+slackclient==1.2.1
+requests==2.18.4
+slack-bolt==1.22.0
+apscheduler==3.11.0
