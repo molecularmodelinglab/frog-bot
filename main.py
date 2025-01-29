@@ -67,10 +67,10 @@ def react_to_frog_messages(event, client: WebClient):
 
 @app.event("app_mention")
 def respond_to_mention(event, say):
-    print(f"Received app_mention event: {event}")
+    thread_ts = event.get("thread_ts")
     ribbit_count = random.randint(1, 10)
     ribbits = " ".join(["ribbit"] * ribbit_count)
-    say(f"{ribbits}! 🐸")
+    say(f"{ribbits}! 🐸", thread_ts=thread_ts)
 
 
 # Schedule the daily task
