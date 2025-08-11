@@ -20,7 +20,7 @@ def upload_frog_image():
     try:
         client = WebClient(token=SLACK_BOT_TOKEN)
         response = client.files_upload_v2(
-            channels=channel_id,
+            channel=channel_id,
             file=local_image_path,
             title="Daily Frog 🐸",
             initial_comment=quote
@@ -39,7 +39,7 @@ def handle_frog_command(ack, body, client: WebClient):
     local_image_path = os.path.join("./images", sample(os.listdir("./images"), 1)[0])
     try:
         response = client.files_upload_v2(
-            channels=body["channel_id"],
+            channel=body["channel_id"],
             file=local_image_path,
             title="Here's a frog for you!",
             initial_comment="🐸 A cute frog just for you!"
